@@ -1,8 +1,10 @@
+const path = require('path');
+
 (async () => {
     try {
         const { mongoloose, models: { User, Task } } = require('workshop-data')
 
-        await mongoloose.connect()
+        await mongoloose.connect(path.join(__dirname, 'data'))
 
         debugger
 
@@ -42,6 +44,8 @@
         task.populate('user')
 
         debugger
+
+        console.dir(task)
     } catch (error) {
         console.error(error)
     }
