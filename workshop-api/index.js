@@ -1,52 +1,46 @@
-const path = require('path');
+const path = require('path')
+const { mongoloose, models: { User, Task } } = require('workshop-data')
 
-(async () => {
-    try {
-        const { mongoloose, models: { User, Task } } = require('workshop-data')
+;(async () => {
+	try {
+		await mongoloose.connect(path.join(__dirname, 'data'))
 
-        await mongoloose.connect(path.join(__dirname, 'data'))
+        const user = new User({ username: 'peter', password: '123', date: new Date })
 
-        debugger
+        await user.save()
 
-        const user = new User({ username: 'pepito', password: '123', date: new Date })
-
+        console.log('// saved user =>')
         console.dir(user)
 
-        await user.save()
-
-        debugger
-
-        user.username = 'pepita'
+        user.username = 'petra'
 
         await user.save()
 
-        debugger
-
-        console.log(user.id)
+        console.log('// same user modified and resaved =>')
+        console.dir(user)
 
         const user2 = User.findById(user.id)
 
+        console.log('// user found by id =>')
         console.dir(user2)
 
-        console.log(user.object === user2.object)
+        console.log('// user and user2 documents must be different instances =>', user.document !== user2.document)
+        console.log('// user must be an instance of User =>', user instanceof User)
+        console.log('// user2 must be an instance of User =>', user2 instanceof User)
 
-        console.log(user instanceof User)
-        console.log(user2 instanceof User)
+        const task = new Task({ subject: 'Hello, World!', body: 'blah blah blah', user: user._id })
 
-        debugger
-
-        const task = new Task({ subject: 'hola mundo', body: 'blah blah blah', user: user._id })
-    
         await task.save()
 
-        debugger
+        console.log('// saved task =>')
+        console.dir(task)
 
         task.populate('user')
 
-        debugger
+        console.log('// same task with user populated =>')
+            console.dir(task)
 
-        console.dir(task)
-    } catch (error) {
-        console.error(error)
-    }
+        } catch (error) {
+            console.error(error)
+        }
 })()

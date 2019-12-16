@@ -1,5 +1,5 @@
 {
-  "name": "workshop-data",
+  "name": "workshop-api",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -10,6 +10,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "mongoloose": "^1.0.4"
+    "workshop-data": "file:../workshop-data"
   }
 }
