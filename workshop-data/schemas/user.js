@@ -1,4 +1,4 @@
-const { Schema } = require('mongoloose')
+const { Schema } = require('not-mongoose')
 
 module.exports = new Schema({
     username: {

@@ -14,5 +14,13 @@
         "_id": {
             "value": "b5dfebc5-c6a4-4e1e-849c-3e44cf714564"
         }
+    },
+    {
+        "username": "petra",
+        "password": "123",
+        "date": "2019-12-18T11:19:22.196Z",
+        "_id": {
+            "value": "29b3ce86-59cd-45fd-82cf-4a33f899cd50"
+        }
     }
 ]

@@ -20,5 +20,16 @@
         "_id": {
             "value": "913f5351-c70e-40a0-b278-2ec09fc1115d"
         }
+    },
+    {
+        "subject": "Hello, World!",
+        "body": "blah blah blah",
+        "user": {
+            "value": "29b3ce86-59cd-45fd-82cf-4a33f899cd50"
+        },
+        "status": 0,
+        "_id": {
+            "value": "55bb3d98-96b0-43f3-962d-84a16a6445be"
+        }
     }
 ]

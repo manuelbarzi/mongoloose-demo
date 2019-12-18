@@ -1,9 +1,9 @@
-const mongoloose = require('mongoloose')
-const { model } = mongoloose
+const mongoose = require('not-mongoose')
+const { model } = mongoose
 const { user, task } = require('./schemas')
 
 module.exports = {
-    mongoloose,
+    mongoose,
     models: {
         User: model('User', user),
         Task: model('Task', task)

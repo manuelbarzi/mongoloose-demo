@@ -1,9 +1,9 @@
 const path = require('path')
-const { mongoloose, models: { User, Task } } = require('workshop-data')
+const { mongoose, models: { User, Task } } = require('workshop-data')
 
 ;(async () => {
 	try {
-		await mongoloose.connect(path.join(__dirname, 'data'))
+		await mongoose.connect(path.join(__dirname, 'data'))
 
         const user = new User({ username: 'peter', password: '123', date: new Date })
 

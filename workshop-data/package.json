@@ -10,6 +10,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "mongoloose": "^1.0.4"
+    "not-mongoose": "^1.0.0"
   }
 }
