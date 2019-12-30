@@ -2,25 +2,9 @@
     {
         "username": "petra",
         "password": "123",
-        "date": "2019-12-16T09:56:36.503Z",
+        "date": "2019-12-30T09:46:35.187Z",
         "_id": {
-            "value": "6e2e2f1d-36e0-490f-8173-ec1cf40bb33b"
-        }
-    },
-    {
-        "username": "petra",
-        "password": "123",
-        "date": "2019-12-16T09:56:45.810Z",
-        "_id": {
-            "value": "b5dfebc5-c6a4-4e1e-849c-3e44cf714564"
-        }
-    },
-    {
-        "username": "petra",
-        "password": "123",
-        "date": "2019-12-18T11:19:22.196Z",
-        "_id": {
-            "value": "29b3ce86-59cd-45fd-82cf-4a33f899cd50"
+            "value": "7ea43d95-9086-430a-9ab9-231962480d10"
         }
     }
 ]

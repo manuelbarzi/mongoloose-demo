@@ -1,46 +1,45 @@
-const path = require('path')
 const { mongoose, models: { User, Task } } = require('workshop-data')
+const path = require('path')
 
 ;(async () => {
 	try {
 		await mongoose.connect(path.join(__dirname, 'data'))
 
-        const user = new User({ username: 'peter', password: '123', date: new Date })
+		const user = new User({ username: 'peter', password: '123', date: new Date })
 
-        await user.save()
+		await user.save()
 
-        console.log('// saved user =>')
-        console.dir(user)
+		console.log('// saved user =>')
+		console.dir(user)
 
-        user.username = 'petra'
+		user.username = 'petra'
 
-        await user.save()
+		await user.save()
 
-        console.log('// same user modified and resaved =>')
-        console.dir(user)
+		console.log('// same user modified and resaved =>')
+		console.dir(user)
 
-        const user2 = User.findById(user.id)
+		const user2 = await User.findById(user.id)
 
-        console.log('// user found by id =>')
-        console.dir(user2)
+		console.log('// user found by id =>')
+		console.dir(user2)
 
-        console.log('// user and user2 documents must be different instances =>', user.document !== user2.document)
-        console.log('// user must be an instance of User =>', user instanceof User)
-        console.log('// user2 must be an instance of User =>', user2 instanceof User)
+		console.log('// user and user2 documents must be different instances =>', user.document !== user2.document)
+		console.log('// user must be an instance of User =>', user instanceof User)
+		console.log('// user2 must be an instance of User =>', user2 instanceof User)
 
-        const task = new Task({ subject: 'Hello, World!', body: 'blah blah blah', user: user._id })
+		const task = new Task({ subject: 'Hello, World!', body: 'blah blah blah', user: user._id })
 
-        await task.save()
+		await task.save()
 
-        console.log('// saved task =>')
-        console.dir(task)
+		console.log('// saved task =>')
+		console.dir(task)
 
-        task.populate('user')
+		await task.populate('user')
 
-        console.log('// same task with user populated =>')
-            console.dir(task)
-
-        } catch (error) {
-            console.error(error)
-        }
+		console.log('// same task with user populated =>')
+		console.dir(task)
+	} catch (error) {
+		console.error(error)
+	}
 })()
